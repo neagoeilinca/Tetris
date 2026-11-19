@@ -1,22 +1,20 @@
-﻿  ProjectDir: C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\raylib-project-vs\
-  SolutionDir: C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\
-   Volume in drive C has no label.
-   Volume Serial Number is 72F9-28F3
+﻿  ProjectDir: C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\raylib-project-vs\
+  SolutionDir: C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\
+   Volume in drive C is Windows
+   Volume Serial Number is E031-20D2
   
-   Directory of C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\lib
+   Directory of C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\lib
   
-  11/11/2026  01:24 PM    <DIR>          .
-  11/18/2026  01:24 PM    <DIR>          ..
-  11/11/2026  01:24 PM        10,625,986 raylib.lib
-                 1 File(s)     10,625,986 bytes
-                 2 Dir(s)  366,849,183,744 bytes free
+  11.11.2026  13:31    <DIR>          .
+  19.11.2026  16:24    <DIR>          ..
+  11.11.2026  13:31        10.625.986 raylib.lib
+                 1 File(s)     10.625.986 bytes
+                 2 Dir(s)  122.806.542.336 bytes free
   main.cpp
-raylib.lib(rcore.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rcore.obj)' or at 'C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(rtext.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rtext.obj)' or at 'C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(utils.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(utils.obj)' or at 'C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(rshapes.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rshapes.obj)' or at 'C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(rtextures.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rtextures.obj)' or at 'C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(rglfw.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rglfw.obj)' or at 'C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
-  raylib-project-vs.vcxproj -> C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib-project-vs.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+raylib.lib(rcore.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rcore.obj)' or at 'C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
+raylib.lib(rtext.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rtext.obj)' or at 'C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
+raylib.lib(utils.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(utils.obj)' or at 'C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
+raylib.lib(rshapes.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rshapes.obj)' or at 'C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
+raylib.lib(rtextures.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rtextures.obj)' or at 'C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
+raylib.lib(rglfw.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rglfw.obj)' or at 'C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib.pdb'; linking object as if no debug info
+  raylib-project-vs.vcxproj -> C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\raylib-project-vs.exe

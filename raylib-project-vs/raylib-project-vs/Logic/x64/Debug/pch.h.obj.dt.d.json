@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\miru\\onedrive\\documents\\facultate\\anul3\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\pch.h",
+        "Source": "c:\\users\\user\\desktop\\facultate\\anul iii\\semestrul i\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\pch.h",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\miru\\onedrive\\documents\\facultate\\anul3\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\framework.h"
+            "c:\\users\\user\\desktop\\facultate\\anul iii\\semestrul i\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\framework.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

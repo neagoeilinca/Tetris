@@ -2,11 +2,12 @@
 
 enum EPieceType
 {
-	I,
-	J,
-	L,
-	O,
-	S,
-	T,
-	Z
+    EMPTY,
+    I,
+    J,
+    L,
+    O,
+    S,
+    T,
+    Z
 };

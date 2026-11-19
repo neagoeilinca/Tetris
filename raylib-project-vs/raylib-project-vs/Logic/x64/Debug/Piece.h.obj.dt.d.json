@@ -1,7 +1,7 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\miru\\onedrive\\documents\\facultate\\anul3\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\piece.h",
+        "Source": "c:\\users\\user\\desktop\\facultate\\anul iii\\semestrul i\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\piece.h",
         "ProvidedModule": "",
         "Includes": [
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\array",
@@ -77,7 +77,7 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\malloc.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\zmmintrin.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\ammintrin.h",
-            "c:\\users\\miru\\onedrive\\documents\\facultate\\anul3\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\epiecetype.h"
+            "c:\\users\\user\\desktop\\facultate\\anul iii\\semestrul i\\is\\tetris\\raylib-project-vs\\raylib-project-vs\\logic\\epiecetype.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

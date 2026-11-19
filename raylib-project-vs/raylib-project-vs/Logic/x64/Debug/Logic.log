@@ -1,2 +1,6 @@
-﻿  Game.cpp
-  Logic.vcxproj -> C:\Users\Miru\OneDrive\Documents\facultate\anul3\is\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\Logic.lib
+﻿  Board.cpp
+  Game.cpp
+  Logic.cpp
+  Piece.cpp
+  Generating Code...
+  Logic.vcxproj -> C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\Logic.lib

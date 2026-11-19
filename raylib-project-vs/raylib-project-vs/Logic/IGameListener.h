@@ -1,8 +1,13 @@
 #pragma once
-__interface IGameListener
+
+#include "EGameStatus.h"
+
+class IGameListener
 {
 public:
-	void onGameStatusChanged(EGameStatus status);
-	void onBoardChanged();
-	void onScoreChanged(int score);
+    virtual void onGameStatusChanged(EGameStatus status) = 0;
+    virtual void onBoardChanged() = 0;
+    virtual void onScoreChanged(int score) = 0;
+
+    virtual ~IGameListener() = default;
 };
