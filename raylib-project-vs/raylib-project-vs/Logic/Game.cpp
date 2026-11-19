@@ -158,11 +158,6 @@ void Game::tick()
     move(DOWN);
 }
 
-void Game::Tick()
-{
-    tick();
-}
-
 void Game::hardDrop()
 {
     if (status != RUNNING)

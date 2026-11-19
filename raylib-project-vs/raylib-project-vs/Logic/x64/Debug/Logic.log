@@ -1,6 +1,7 @@
-﻿  Board.cpp
+﻿  pch.cpp
+  Board.cpp
   Game.cpp
   Logic.cpp
   Piece.cpp
   Generating Code...
-  Logic.vcxproj -> C:\Users\user\Desktop\Facultate\Anul III\semestrul I\IS\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\Logic.lib
+  Logic.vcxproj -> C:\Users\ANDRA\Git-projects\Tetris\raylib-project-vs\raylib-project-vs\x64\Debug\Logic.lib

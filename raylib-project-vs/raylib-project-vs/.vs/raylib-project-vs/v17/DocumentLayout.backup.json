@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\coderdojo\\2024-2025\\raylib-test\\raylib-project-vs\\",
+  "WorkspaceRootPath": "C:\\Users\\ANDRA\\Git-projects\\Tetris\\raylib-project-vs\\raylib-project-vs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B09AAF14-65C8-4A8C-A0C9-E2EC0E650E9E}|raylib-project-vs\\raylib-project-vs.vcxproj|G:\\coderdojo\\2024-2025\\raylib-test\\raylib-project-vs\\raylib-project-vs\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{B09AAF14-65C8-4A8C-A0C9-E2EC0E650E9E}|raylib-project-vs\\raylib-project-vs.vcxproj|C:\\Users\\ANDRA\\Git-projects\\Tetris\\raylib-project-vs\\raylib-project-vs\\raylib-project-vs\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B09AAF14-65C8-4A8C-A0C9-E2EC0E650E9E}|raylib-project-vs\\raylib-project-vs.vcxproj|solutionrelative:raylib-project-vs\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -14,20 +14,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "G:\\coderdojo\\2024-2025\\raylib-test\\raylib-project-vs\\raylib-project-vs\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\ANDRA\\Git-projects\\Tetris\\raylib-project-vs\\raylib-project-vs\\raylib-project-vs\\main.cpp",
               "RelativeDocumentMoniker": "raylib-project-vs\\main.cpp",
-              "ToolTip": "G:\\coderdojo\\2024-2025\\raylib-test\\raylib-project-vs\\raylib-project-vs\\main.cpp",
+              "ToolTip": "C:\\Users\\ANDRA\\Git-projects\\Tetris\\raylib-project-vs\\raylib-project-vs\\raylib-project-vs\\main.cpp",
               "RelativeToolTip": "raylib-project-vs\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-06T13:53:34.089Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 865,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

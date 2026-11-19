@@ -26,5 +26,7 @@ public:
 
     virtual EPieceType getCellType(int row, int column) const = 0;
 
+    virtual void hardDrop() = 0;
+
     virtual ~IGameController() = default;
 };

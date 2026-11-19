@@ -43,9 +43,8 @@ public:
 
     void tick() override;
 
-    void Tick();
 
-    void hardDrop();
+    void hardDrop() override;
 
     int getScore() const override;
 
