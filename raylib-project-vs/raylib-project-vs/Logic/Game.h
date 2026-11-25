@@ -1,33 +1,37 @@
-
 #pragma once
 
 #include "IGameController.h"
+#include "IPieceTypeGenerator.h"
 #include "Board.h"
 #include "Piece.h"
 
 #include <list>
+#include <memory>
 
 class Game : public IGameController
 {
 private:
     Board board;
     Piece current_piece;
+    std::unique_ptr<IPieceTypeGenerator> pieceTypeGenerator;
 
     EGameStatus status;
     int score;
 
     std::list<IGameListener*> listeners;
 
-    Piece generateRandomPiece();
+    Piece generateNextPiece();
 
     void spawnNewPiece();
 
-    void notifyObservers();
+    void lockCurrentPiece();
 
-    void updateScore(int lines);
+    void notifyObservers();
 
 public:
     Game();
+
+    explicit Game(std::unique_ptr<IPieceTypeGenerator> generator);
 
     void startNewGame() override;
 
@@ -42,7 +46,6 @@ public:
     void unregisterObserver(IGameListener* listener) override;
 
     void tick() override;
-
 
     void hardDrop() override;
 

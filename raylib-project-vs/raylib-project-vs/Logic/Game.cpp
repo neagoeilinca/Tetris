@@ -1,55 +1,68 @@
 #include "pch.h"
 #include "Game.h"
+#include "RandomPieceTypeGenerator.h"
 
-#include <random>
+#include <utility>
 
-Game::Game()
-    : status(NOT_STARTED), score(0)
+namespace
 {
+    // Punctaj in functie de numarul de linii eliminate simultan
+    int calculateScore(int clearedLines)
+    {
+        switch (clearedLines)
+        {
+        case 1: return 100;
+        case 2: return 300;
+        case 3: return 500;
+        case 4: return 800;
+        default: return 0;
+        }
+    }
 }
 
-Piece Game::generateRandomPiece()
+Game::Game()
+    : Game(std::make_unique<RandomPieceTypeGenerator>())
+{}
+
+Game::Game(std::unique_ptr<IPieceTypeGenerator> generator)
+    : pieceTypeGenerator(std::move(generator)), status(NOT_STARTED), score(0)
+{}
+
+Piece Game::generateNextPiece()
 {
-    // Generator pentru numere aleatorii
-    static std::mt19937 generator(std::random_device{}());
-
-    // Alegem un tip de piesa intre I si Z
-    std::uniform_int_distribution<int> distribution(I, Z);
-
-    EPieceType randomType =
-        static_cast<EPieceType>(distribution(generator));
-
-    return Piece(randomType, 3, 0);
+    return Piece(pieceTypeGenerator->nextPieceType(), 3, 0);
 }
 
 void Game::startNewGame()
 {
     board.reset();
-
     score = 0;
-
     status = RUNNING;
 
     spawnNewPiece();
-
-    notifyObservers();
 }
 
 void Game::spawnNewPiece()
 {
-    current_piece = generateRandomPiece();
+    current_piece = generateNextPiece();
 
-    // Daca piesa noua nu poate fi pozitionata,
-    // jocul s-a terminat
-    if (board.checkCollision(
-        current_piece,
-        current_piece.getX(),
-        current_piece.getY()))
+    // Daca piesa noua nu poate fi pozitionata, jocul s-a terminat
+    if (board.checkCollision(current_piece, current_piece.getX(), current_piece.getY()))
     {
         status = GAME_OVER;
     }
 
     notifyObservers();
+}
+
+void Game::lockCurrentPiece()
+{
+    board.mergePiece(current_piece);
+
+    const int clearedLines = board.clearLines();
+    score += calculateScore(clearedLines);
+
+    spawnNewPiece();
 }
 
 void Game::rotate()
@@ -61,17 +74,11 @@ void Game::rotate()
 
     // Lucram pe o copie pentru a nu pierde forma initiala
     Piece rotatedPiece = current_piece;
-
     rotatedPiece.rotate();
 
-    // Aplicam rotirea doar daca nu apare o coliziune
-    if (!board.checkCollision(
-        rotatedPiece,
-        rotatedPiece.getX(),
-        rotatedPiece.getY()))
+    if (!board.checkCollision(rotatedPiece, rotatedPiece.getX(), rotatedPiece.getY()))
     {
         current_piece = rotatedPiece;
-
         notifyObservers();
     }
 }
@@ -119,31 +126,15 @@ void Game::move(EDirection direction)
         break;
     }
 
-    int newX = current_piece.getX() + dx;
-    int newY = current_piece.getY() + dy;
-
-    if (!board.checkCollision(current_piece, newX, newY))
+    if (!board.checkCollision(current_piece, current_piece.getX() + dx, current_piece.getY() + dy))
     {
         current_piece.move(dx, dy);
-
         notifyObservers();
     }
     else if (direction == DOWN)
     {
-        // Piesa nu mai poate cobori.
-        // O fixam pe tabla.
-        board.mergePiece(current_piece);
-
-        // Eliminam liniile complete
-        int clearedLines = board.clearLines();
-
-        // Actualizam scorul
-        updateScore(clearedLines);
-
-        notifyObservers();
-
-        // Generam urmatoarea piesa
-        spawnNewPiece();
+        // Piesa nu mai poate cobori: o fixam pe tabla
+        lockCurrentPiece();
     }
 }
 
@@ -154,7 +145,6 @@ void Game::tick()
         return;
     }
 
-    // La fiecare tick, piesa coboara un rand
     move(DOWN);
 }
 
@@ -165,60 +155,12 @@ void Game::hardDrop()
         return;
     }
 
-    // Coboram piesa pana cand nu mai poate avansa
-    while (!board.checkCollision(
-        current_piece,
-        current_piece.getX(),
-        current_piece.getY() + 1))
+    while (!board.checkCollision(current_piece, current_piece.getX(), current_piece.getY() + 1))
     {
         current_piece.move(0, 1);
     }
 
-    // Fixam piesa pe tabla
-    board.mergePiece(current_piece);
-
-    int clearedLines = board.clearLines();
-
-    updateScore(clearedLines);
-
-    notifyObservers();
-
-    spawnNewPiece();
-}
-
-void Game::updateScore(int lines)
-{
-    // Sistem de punctaj in functie de numarul
-    // de linii eliminate simultan
-    switch (lines)
-    {
-    case 1:
-        score += 100;
-        break;
-
-    case 2:
-        score += 300;
-        break;
-
-    case 3:
-        score += 500;
-        break;
-
-    case 4:
-        score += 800;
-        break;
-
-    default:
-        break;
-    }
-
-    if (lines > 0)
-    {
-        for (IGameListener* listener : listeners)
-        {
-            listener->onScoreChanged(score);
-        }
-    }
+    lockCurrentPiece();
 }
 
 void Game::registerObserver(IGameListener* listener)
@@ -250,9 +192,7 @@ void Game::notifyObservers()
     for (IGameListener* listener : listeners)
     {
         listener->onBoardChanged();
-
         listener->onGameStatusChanged(status);
-
         listener->onScoreChanged(score);
     }
 }
@@ -279,35 +219,21 @@ int Game::getColumnCount() const
 
 EPieceType Game::getCellType(int row, int column) const
 {
-    if (row < 0 || row >= 20 ||
-        column < 0 || column >= 10)
+    if (row < 0 || row >= 20 || column < 0 || column >= 10)
     {
         return EMPTY;
     }
 
-    // Verificam mai intai daca celula apartine piesei curente
-    for (int pieceRow = 0; pieceRow < 4; pieceRow++)
+    // Piesa curenta are prioritate fata de continutul tablei
+    const EPieceType pieceCell = current_piece.getCell(
+        row - current_piece.getY(),
+        column - current_piece.getX());
+
+    if (pieceCell != EMPTY)
     {
-        for (int pieceCol = 0; pieceCol < 4; pieceCol++)
-        {
-            if (current_piece.getCell(pieceRow, pieceCol) == EMPTY)
-            {
-                continue;
-            }
-
-            int currentX = current_piece.getX() + pieceCol;
-            int currentY = current_piece.getY() + pieceRow;
-
-            if (currentX == column && currentY == row &&
-                status == RUNNING)
-            {
-                return current_piece.getType();
-            }
-        }
+        return pieceCell;
     }
 
-    // Daca nu apartine piesei curente,
-    // returnam continutul tablei
     return board.getGrid()[row][column];
 }
 
