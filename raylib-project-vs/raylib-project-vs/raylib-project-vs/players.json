@@ -1,0 +1,12 @@
+{
+    "player": {
+        "highScore": 0,
+        "name": "player",
+        "password": "player1234"
+    },
+    "viorica": {
+        "highScore": 100,
+        "name": "viorica",
+        "password": "viorica1234"
+    }
+}

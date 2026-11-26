@@ -25,8 +25,19 @@ Game::Game()
 {}
 
 Game::Game(std::unique_ptr<IPieceTypeGenerator> generator)
-    : pieceTypeGenerator(std::move(generator)), status(NOT_STARTED), score(0)
-{}
+    : Game(nullptr, std::move(generator))
+{
+}
+
+Game::Game(std::shared_ptr<Player> playerPtr, std::unique_ptr<IPieceTypeGenerator> generator)
+    : pieceTypeGenerator(generator ? std::move(generator) 
+                                   : std::make_unique<RandomPieceTypeGenerator>()),
+      status(NOT_STARTED),
+      score(0),
+      player(playerPtr)
+{
+}
+
 
 Piece Game::generateNextPiece()
 {
@@ -40,6 +51,7 @@ void Game::startNewGame()
     status = RUNNING;
 
     spawnNewPiece();
+    notifyObservers();
 }
 
 void Game::spawnNewPiece()
@@ -61,8 +73,25 @@ void Game::lockCurrentPiece()
 
     const int clearedLines = board.clearLines();
     score += calculateScore(clearedLines);
+    updatePlayerHighScore();
 
     spawnNewPiece();
+    if (status == GAME_OVER)
+    {
+        updatePlayerHighScore();
+        notifyObservers();
+    }
+}
+void Game::updatePlayerHighScore()
+{
+    if (player)
+    {
+        if (score > player->getHighScore())
+        {
+            player->setHighScore(score);
+        }
+    }
+    
 }
 
 void Game::rotate()
@@ -245,4 +274,9 @@ const Board& Game::getBoard() const
 const Piece& Game::getCurrentPiece() const
 {
     return current_piece;
+}
+
+const Player* Game::getPlayer() const
+{
+    return player.get();
 }

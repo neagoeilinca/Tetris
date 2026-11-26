@@ -4,9 +4,13 @@
 #include "IPieceTypeGenerator.h"
 #include "Board.h"
 #include "Piece.h"
+#include "Player.h"
+#include <nlohmann/json.hpp>
 
 #include <list>
 #include <memory>
+
+using json = nlohmann::json;
 
 class Game : public IGameController
 {
@@ -22,16 +26,23 @@ private:
 
     Piece generateNextPiece();
 
+    std::shared_ptr<Player> player;
+
     void spawnNewPiece();
 
     void lockCurrentPiece();
 
     void notifyObservers();
 
+    void updatePlayerHighScore();
+
 public:
     Game();
 
     explicit Game(std::unique_ptr<IPieceTypeGenerator> generator);
+
+    explicit Game(std::shared_ptr<Player> playerPtr,
+        std::unique_ptr<IPieceTypeGenerator> generator = nullptr);
 
     void startNewGame() override;
 
@@ -62,4 +73,6 @@ public:
     const Board& getBoard() const;
 
     const Piece& getCurrentPiece() const;
+
+    const Player* getPlayer() const;
 };
