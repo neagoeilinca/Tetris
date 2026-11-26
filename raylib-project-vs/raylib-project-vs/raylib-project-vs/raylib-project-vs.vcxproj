@@ -141,7 +141,12 @@ dir "$(ProjectDir)..\lib"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LeaderboardView.cpp" />
+    <ClCompile Include="LoginView.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RegisterView.cpp" />
+    <ClCompile Include="StartPage.cpp" />
+    <ClCompile Include="TetrisView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logic\Logic.vcxproj">
@@ -150,6 +155,14 @@ dir "$(ProjectDir)..\lib"</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LeaderboardView.h" />
+    <ClInclude Include="LoginView.h" />
+    <ClInclude Include="RegisterView.h" />
+    <ClInclude Include="StartPage.h" />
+    <ClInclude Include="TetrisView.h" />
+    <ClInclude Include="UIConstants.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
